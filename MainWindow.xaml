@@ -9,32 +9,31 @@
         FontSize="20">
     <Grid>
         <Grid.ColumnDefinitions >
-            
+
             <ColumnDefinition>
 
             </ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height =" 50">
+            <RowDefinition Height ="4">
 
             </RowDefinition>
-            <RowDefinition Height ="320">
+            <RowDefinition Height ="327">
 
             </RowDefinition>
-            <RowDefinition > 
-                
+            <RowDefinition >
+
             </RowDefinition>
         </Grid.RowDefinitions>
 
-        <Button Content="Вывести данные" Height ="30"
-                Width="180" 
-                Grid.Column="1" Grid.Row="2" 
-                Click="Button_Click_1"/>
+        <Button Content="Вывести данные" Grid.Row="2" 
+                Click="Button_Click_1"
+                Margin="284,26,310,24"/>
 
 
         <ListBox x:Name ="VacancyListBox" Grid.Column="0"
-                 Grid.Row="1" Margin="5">
-            
+                 Grid.Row="1" Margin="5,5,5,5">
+
         </ListBox>
 
 

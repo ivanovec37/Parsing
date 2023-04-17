@@ -53,19 +53,20 @@ namespace Parsing
             for (int i = 0; i < count; i++)
             {
                 List<string> items = new();
+                htmlBody = await client.GetStringAsync($"https://proglib.io/vacancies/all?workType=all&workPlace=all&experience=&salaryFrom=&page={i}");
 
-                MatchCollection matches1 = regex1.Matches(htmlBody + i.ToString());
+                MatchCollection matches1 = regex1.Matches(htmlBody);
                 foreach (Match match1 in matches1)
                 {
                     items.Add(match1.Groups[1].Value + "\n");
                 }
-                MatchCollection matches = regex.Matches(htmlBody + i.ToString());
+                MatchCollection matches = regex.Matches(htmlBody);
                 for (int j = 0; j < items.Count; j++)
                 {
                     items[j] += matches[j].Groups[1].Value + "\n";
                 }
 
-                MatchCollection matches2 = regex2.Matches(htmlBody + i.ToString());
+                MatchCollection matches2 = regex2.Matches(htmlBody);
                 for (int j = 0; j < items.Count; j++)
                 {
                     items[j] += "https://proglib.io/vacancies/" + matches2[j].Groups[1].Value + "\n";
@@ -75,7 +76,7 @@ namespace Parsing
                 {
                     VacancyListBox.Items.Add(items[j]);
                 }
-                htmlBody = await client.GetStringAsync($"https://proglib.io/vacancies/all?workType=all&workPlace=all&experience=&salaryFrom=&page={i}");
+               
             }
 
 
